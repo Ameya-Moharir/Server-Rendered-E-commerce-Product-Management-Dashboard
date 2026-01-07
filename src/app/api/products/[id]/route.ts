@@ -10,7 +10,7 @@ type RouteContext = {
 
 export async function GET(
   request: NextRequest,
-  context:{ params: Promise<{ id: string }> } // Destructure params from the second argument
+  { params }: { params: Promise<{ id: string }> } // Destructure params from the second argument
 ) {
   try {
     // 1. Await params before accessing properties (Next.js 15 requirement)
@@ -40,7 +40,7 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
- context: { params: Promise<{ id: string }> }
+ { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params; // Await params first
@@ -100,7 +100,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
     const { id } = await params; // Await params first
