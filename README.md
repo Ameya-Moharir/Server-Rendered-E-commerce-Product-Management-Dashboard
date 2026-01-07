@@ -20,7 +20,7 @@
 
 ```bash
 Email:    admin@demo.com
-Password: admin123
+Password: admin123 
 ```
 
 > **Note:** Create additional admin accounts using the Admin Onboarding feature within the dashboard.
@@ -29,7 +29,7 @@ Password: admin123
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Features](#-features)
 - [Technology Stack](#️-technology-stack)
@@ -39,12 +39,10 @@ Password: admin123
 - [API Documentation](#-api-documentation)
 - [Deployment](#️-deployment)
 - [Security](#-security)
-- [Performance](#-performance)
-- [License](#-license)
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core Functionality
 
@@ -305,41 +303,5 @@ MONGODB_URI=your_production_uri node scripts/seed.js
 
 ---
 
-## ⚡ Performance
 
-### Optimization Techniques
-- Server-side rendering for fast initial loads
-- Code splitting and lazy loading
-- React Query caching
-- Optimistic UI updates
-- Image optimization
 
-### Metrics
-- **First Contentful Paint**: < 1.5s
-- **Time to Interactive**: < 3.5s
-- **Lighthouse Score**: 90+
-
----
-
-## 📄 License
-
-This project is licensed under the **ISC License**.
-
----
-
-<div align="center">
-
-## 👨‍💻 Developer
-
-**Ameya Moharir**
-
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github)](https://github.com/YOUR_USERNAME)
-[![Email](https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail)](mailto:your.email@example.com)
-
----
-
-### ⭐ If you found this project helpful, please consider giving it a star!
-
-**Built with ❤️ using Next.js, React, and MongoDB**
-
-</div>
