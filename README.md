@@ -19,7 +19,7 @@
 ### Administrator Access
 
 ```bash
-Email:    admin@demo.com
+Email: admin@demo.com
 Password: admin123
 ```
 
