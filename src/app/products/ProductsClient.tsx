@@ -13,6 +13,7 @@ import { formatCurrency, formatDate, truncateText } from '@/utils/helpers';
 import { Plus, Edit, Trash2, Search, ArrowLeft } from 'lucide-react';
 import toast from 'react-hot-toast';
 
+// Update the Product interface to be more specific
 interface Product {
   _id: string;
   name: string;
@@ -22,7 +23,8 @@ interface Product {
   stock: number;
   sku: string;
   images: string[];
-  status: string;
+  // Fix: Change 'string' to the specific union type
+  status: 'active' | 'inactive' | 'out_of_stock'; 
   createdAt: string;
   updatedAt: string;
 }
