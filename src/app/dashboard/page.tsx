@@ -63,12 +63,17 @@ async function getAnalytics() {
     totalSales,
     lowStockProducts,
     salesChart,
-    topProducts: topProducts.map(p => ({
+    // Fix 1: Ensure topProducts are mapped (you already had this, but ensuring 'any' usage for safety)
+    topProducts: topProducts.map((p: any) => ({
       name: p.name,
       sales: Math.round(p.sales),
       revenue: Math.round(p.revenue),
     })),
-    categoryDistribution,
+    // Fix 2: Explicitly map categoryDistribution to match the Interface
+    categoryDistribution: categoryDistribution.map((item: any) => ({
+      category: item.category || 'Uncategorized',
+      count: item.count || 0,
+    })),
   };
 }
 
