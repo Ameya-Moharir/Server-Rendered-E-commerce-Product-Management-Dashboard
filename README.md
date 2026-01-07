@@ -12,7 +12,7 @@
 
 **A production-ready e-commerce admin dashboard featuring server-side rendering, interactive data visualization, secure authentication, and comprehensive CRUD operations for product management.**
 
-**Deployed Website**(https://server-rendered-e-commerce-product-management-dashbo-7imn0s7ng.vercel.app/login) 
+**Deployed Website**: https://server-rendered-e-commerce-product-management-dashbo-7imn0s7ng.vercel.app/login 
 
 ---
 
