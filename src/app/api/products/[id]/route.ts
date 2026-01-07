@@ -3,14 +3,22 @@ import { getDatabase } from '@/lib/mongodb';
 import { productUpdateSchema } from '@/lib/validations';
 import { ObjectId } from 'mongodb';
 
+// Define the type for the route context
+type RouteContext = {
+  params: Promise<{ id: string }>;
+};
+
 export async function GET(
   request: NextRequest,
-  context:{ params: Promise<{ id: string }> }
+  { params }: RouteContext // Destructure params from the second argument
 ) {
   try {
+    // 1. Await params before accessing properties (Next.js 15 requirement)
+    const { id } = await params;
+
     const db = await getDatabase();
     const product = await db.collection('products').findOne({
-      _id: new ObjectId(params.id),
+      _id: new ObjectId(id), // Use the extracted 'id'
     });
     
     if (!product) {
@@ -32,9 +40,10 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  { params }: RouteContext
 ) {
   try {
+    const { id } = await params; // Await params first
     const body = await request.json();
     const validatedData = productUpdateSchema.parse(body);
     
@@ -43,7 +52,7 @@ export async function PUT(
     if (validatedData.sku) {
       const existingSKU = await db.collection('products').findOne({
         sku: validatedData.sku,
-        _id: { $ne: new ObjectId(params.id) },
+        _id: { $ne: new ObjectId(id) }, // Use 'id'
       });
       
       if (existingSKU) {
@@ -55,7 +64,7 @@ export async function PUT(
     }
     
     const result = await db.collection('products').updateOne(
-      { _id: new ObjectId(params.id) },
+      { _id: new ObjectId(id) },
       {
         $set: {
           ...validatedData,
@@ -91,13 +100,14 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  context: { params: Promise<{ id: string }> }
+  { params }: RouteContext
 ) {
   try {
+    const { id } = await params; // Await params first
     const db = await getDatabase();
     
     const result = await db.collection('products').deleteOne({
-      _id: new ObjectId(params.id),
+      _id: new ObjectId(id),
     });
     
     if (result.deletedCount === 0) {
