@@ -19,8 +19,7 @@
 ### Administrator Access
 
 ```bash
-Email: admin@demo.com
-Password: admin123
+Email: admin@demo.com Password: admin123
 ```
 
 > **Note:** Create additional admin accounts using the Admin Onboarding feature within the dashboard.
