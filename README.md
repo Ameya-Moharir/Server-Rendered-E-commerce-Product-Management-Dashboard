@@ -55,7 +55,7 @@ Password: admin123
 | **Authentication** | Secure login with NextAuth.js and bcrypt password hashing |
 | **Role-Based Access** | Admin onboarding system with protected routes |
 
-### 🔧 Technical Features
+### Technical Features
 
 - ✅ **TypeScript** - Full type safety across the application
 - ✅ **React Query** - Efficient data fetching and caching
@@ -66,7 +66,7 @@ Password: admin123
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend
 ```
@@ -95,7 +95,7 @@ MongoDB Atlas       →  Cloud database service
 
 ---
 
-## 🏗️ System Architecture
+## System Architecture
 
 ```mermaid
 graph TD
@@ -120,7 +120,7 @@ graph TD
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -173,11 +173,11 @@ This creates:
 npm run dev
 ```
 
-Navigate to **http://localhost:3001** 🚀
+Navigate to **http://localhost:3001** 
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ecommerce-admin-dashboard/
@@ -210,7 +210,7 @@ ecommerce-admin-dashboard/
 ├── 📂 scripts/                    # Utility scripts
 │   └── seed.js                   # Database seeding
 │
-└── 📄 Configuration Files
+└── Configuration Files
     ├── next.config.js
     ├── tailwind.config.js
     └── tsconfig.json
@@ -283,7 +283,7 @@ MONGODB_URI=your_production_uri node scripts/seed.js
 
 ---
 
-## 🔒 Security
+## Security
 
 ### Authentication
 - ✅ bcrypt password hashing (10 salt rounds)
