@@ -115,53 +115,78 @@ export default function AdminOnboardingClient({ admins }: { admins: Admin[] }) {
             </CardHeader>
             <CardContent className="pt-6">
               <form onSubmit={handleSubmit} className="space-y-4">
-                <Input
-                  label="Email Address"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  placeholder="admin@company.com"
-                  required
-                  icon={<Mail className="w-4 h-4" />}
-                />
+                
+                {/* Email Field */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Email Address</label>
+                  <div className="relative">
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                      type="email"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      placeholder="admin@company.com"
+                      required
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
 
-                <Input
-                  label="Full Name"
-                  type="text"
-                  value={formData.name}
-                  onChange={(e) =>
-                    setFormData({ ...formData, name: e.target.value })
-                  }
-                  placeholder="John Doe"
-                  required
-                  icon={<UserIcon className="w-4 h-4" />}
-                />
+                {/* Name Field */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Full Name</label>
+                  <div className="relative">
+                    <UserIcon className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                      type="text"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      placeholder="John Doe"
+                      required
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
 
-                <Input
-                  label="Password"
-                  type="password"
-                  value={formData.password}
-                  onChange={(e) =>
-                    setFormData({ ...formData, password: e.target.value })
-                  }
-                  placeholder="Minimum 8 characters"
-                  required
-                  icon={<Lock className="w-4 h-4" />}
-                />
+                {/* Password Field */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Password</label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                      type="password"
+                      value={formData.password}
+                      onChange={(e) =>
+                        setFormData({ ...formData, password: e.target.value })
+                      }
+                      placeholder="Minimum 8 characters"
+                      required
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
 
-                <Input
-                  label="Confirm Password"
-                  type="password"
-                  value={formData.confirmPassword}
-                  onChange={(e) =>
-                    setFormData({ ...formData, confirmPassword: e.target.value })
-                  }
-                  placeholder="Re-enter password"
-                  required
-                  icon={<Lock className="w-4 h-4" />}
-                />
+                {/* Confirm Password Field */}
+                <div className="space-y-2">
+                  <label className="text-sm font-medium text-gray-700">Confirm Password</label>
+                  <div className="relative">
+                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400" />
+                    <Input
+                      type="password"
+                      value={formData.confirmPassword}
+                      onChange={(e) =>
+                        setFormData({ ...formData, confirmPassword: e.target.value })
+                      }
+                      placeholder="Re-enter password"
+                      required
+                      className="pl-10"
+                    />
+                  </div>
+                </div>
 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mt-4">
                   <p className="text-sm text-blue-900 font-medium mb-2">
@@ -178,10 +203,16 @@ export default function AdminOnboardingClient({ admins }: { admins: Admin[] }) {
                   type="submit"
                   className="w-full"
                   size="lg"
-                  isLoading={isLoading}
+                  disabled={isLoading} // Changed from isLoading prop to disabled + conditional text
                 >
-                  <UserPlus className="w-5 h-5 mr-2" />
-                  Create Admin Account
+                  {isLoading ? (
+                    'Creating...'
+                  ) : (
+                    <>
+                      <UserPlus className="w-5 h-5 mr-2" />
+                      Create Admin Account
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>
@@ -234,10 +265,10 @@ export default function AdminOnboardingClient({ admins }: { admins: Admin[] }) {
                             </div>
                             <p className="text-xs text-gray-500 mt-2">
                               Added on {new Date(admin.createdAt).toLocaleDateString('en-US', {
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric'
-})}
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric'
+                              })}
                             </p>
                           </div>
                         </div>
